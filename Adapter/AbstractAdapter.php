@@ -49,7 +49,7 @@ abstract class AbstractAdapter implements AdapterInterface
         $detections    = [];
 
         foreach ($paths as $path) {
-            $result     = $this->scanSingle($path, $this->options);
+            $result     = $this->scanSingle($path);
             $paths      = array_merge($paths, $result->getPaths());
             $files      = array_merge($files, $result->getFiles());
             $detections = array_merge($detections, $result->getDetections());
@@ -89,8 +89,6 @@ abstract class AbstractAdapter implements AdapterInterface
         }
 
         if (is_dir($path)) {
-            $paths = [$path];
-
             return $this->scanDir($path);
         } else {
             $files[] = $path;
@@ -137,18 +135,18 @@ abstract class AbstractAdapter implements AdapterInterface
     }
 
     /**
-     * Creates a new process builder that your might use to interact with your virus-scanner's executable
+     * Creates a new process that you might use to interact with your virus-scanner's executable
      *
-     * @param array    $arguments An optional array of arguments
-     * @param int|null $timeout   An optional number of seconds for the process' timeout limit
+     * @param array    $command An optional array of arguments
+     * @param int|null $timeout An optional number of seconds for the process' timeout limit
      *
-     * @return Process A new process builder
+     * @return Process A new process
      *
      * @codeCoverageIgnore
      */
-    protected function createProcessBuilder(array $arguments = [], $timeout = null)
+    protected function createProcess(array $command = [], $timeout = null)
     {
-        $pb = new Process($arguments);
+        $pb = new Process($command);
 
         if (null !== $timeout) {
             $pb->setTimeout($timeout);
