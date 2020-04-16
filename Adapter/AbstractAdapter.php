@@ -14,8 +14,7 @@ namespace CL\Tissue\Adapter;
 use CL\Tissue\Model\Detection;
 use CL\Tissue\Model\ScanResult;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Process\ProcessBuilder;
+use Symfony\Component\Process\Process;
 
 abstract class AbstractAdapter implements AdapterInterface
 {
@@ -25,7 +24,7 @@ abstract class AbstractAdapter implements AdapterInterface
     protected $options;
 
     /**
-     * @var OptionsResolverInterface|null
+     * @var OptionsResolver
      */
     private $resolver;
 
@@ -143,13 +142,13 @@ abstract class AbstractAdapter implements AdapterInterface
      * @param array    $arguments An optional array of arguments
      * @param int|null $timeout   An optional number of seconds for the process' timeout limit
      *
-     * @return ProcessBuilder A new process builder
+     * @return Process A new process builder
      *
      * @codeCoverageIgnore
      */
     protected function createProcessBuilder(array $arguments = [], $timeout = null)
     {
-        $pb = new ProcessBuilder($arguments);
+        $pb = new Process($arguments);
 
         if (null !== $timeout) {
             $pb->setTimeout($timeout);
