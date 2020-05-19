@@ -1,5 +1,5 @@
 {
-  "name": "cleentfaar/tissue",
+  "name": "simonberger/tissue",
   "description": "A PHP library that scans your files for viruses using the adapter of your choice",
   "keywords": [
     "anti-virus",
