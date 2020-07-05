@@ -12,8 +12,9 @@
 namespace CL\Tissue\Tests\Model;
 
 use CL\Tissue\Model\Detection;
+use PHPUnit\Framework\TestCase;
 
-class DetectionTest extends \PHPUnit_Framework_TestCase
+class DetectionTest extends TestCase
 {
     public function testGetPath()
     {

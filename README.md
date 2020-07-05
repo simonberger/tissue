@@ -1,4 +1,4 @@
-# Tissue [![License](https://poser.pugx.org/cleentfaar/tissue/license.svg)](https://packagist.org/packages/cleentfaar/tissue)
+# Tissue [![License](https://poser.pugx.org/simonberger/tissue/license.svg)](https://packagist.org/packages/simonberger/tissue)
 
 A PHP library that scans your files for viruses. It does this by providing adapters for various virus-scanning software.
 Currently, the only adapter available is the `ClamAvAdapter` which, obviously, integrates the ClamAV scanner into your projects.
@@ -6,12 +6,9 @@ Currently, the only adapter available is the `ClamAvAdapter` which, obviously, i
 **NOTE:** If your project is built on top of the Symfony Framework, you are much better off using the [TissueBundle](https://github.com/cleentfaar/CLTissueBundle)
 that was specially made for it.
 
-[![Build Status](https://secure.travis-ci.org/cleentfaar/tissue.svg)](http://travis-ci.org/cleentfaar/tissue)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/cleentfaar/tissue/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/cleentfaar/tissue/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/cleentfaar/tissue/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/cleentfaar/tissue/?branch=master)<br/>
-[![Latest Stable Version](https://poser.pugx.org/cleentfaar/tissue/v/stable.svg)](https://packagist.org/packages/cleentfaar/tissue)
-[![Total Downloads](https://poser.pugx.org/cleentfaar/tissue/downloads.svg)](https://packagist.org/packages/cleentfaar/tissue)
-[![Latest Unstable Version](https://poser.pugx.org/cleentfaar/tissue/v/unstable.svg)](https://packagist.org/packages/cleentfaar/tissue)
+[![Latest Stable Version](https://poser.pugx.org/simonberger/tissue/v/stable.svg)](https://packagist.org/packages/simonberger/tissue)
+[![Total Downloads](https://poser.pugx.org/simonberger/tissue/downloads.svg)](https://packagist.org/packages/simonberger/tissue)
+[![Latest Unstable Version](https://poser.pugx.org/simonberger/tissue/v/unstable.svg)](https://packagist.org/packages/simonberger/tissue)
 
 
 ### Documentation

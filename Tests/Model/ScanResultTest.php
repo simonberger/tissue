@@ -12,8 +12,9 @@
 namespace CL\Tissue\Tests\Model;
 
 use CL\Tissue\Model\ScanResult;
+use PHPUnit\Framework\TestCase;
 
-class ScanResultTest extends \PHPUnit_Framework_TestCase
+class ScanResultTest extends TestCase
 {
     public function testGetFiles()
     {

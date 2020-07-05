@@ -13,9 +13,11 @@ namespace CL\Tissue\Tests\Adapter;
 
 use CL\Tissue\Adapter\AdapterInterface;
 use CL\Tissue\Model\Detection;
+use CL\Tissue\Model\ScanResult;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Process\ExecutableFinder;
 
-abstract class AbstractAdapterTestCase extends \PHPUnit_Framework_TestCase
+abstract class AbstractAdapterTestCase extends TestCase
 {
     /**
      * @var AdapterInterface
@@ -37,7 +39,7 @@ abstract class AbstractAdapterTestCase extends \PHPUnit_Framework_TestCase
     {
         $actualResult = $this->adapter->scan([self::getPathToCleanFile()]);
 
-        $this->assertInstanceOf('\CL\Tissue\Model\ScanResult', $actualResult);
+        $this->assertInstanceOf(ScanResult::class, $actualResult);
     }
 
     /**
@@ -122,7 +124,7 @@ abstract class AbstractAdapterTestCase extends \PHPUnit_Framework_TestCase
 
         $this->assertCount(1, $actualResult->getDetections());
         $this->assertEquals(Detection::TYPE_VIRUS, $actualResult->getDetections()[0]->getType());
-        $this->assertInternalType('string', $actualResult->getDetections()[0]->getDescription());
+        $this->assertIsString($actualResult->getDetections()[0]->getDescription());
         $this->assertContains('Eicar-Test-Signature', (string) $actualResult->getDetections()[0]->getDescription());
     }
 

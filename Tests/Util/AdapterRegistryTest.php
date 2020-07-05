@@ -9,11 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace CL\Tissue\Tests\Adapter;
+namespace CL\Tissue\Tests\Util;
 
+use CL\Tissue\Adapter\AdapterInterface;
 use CL\Tissue\Util\AdapterRegistry;
+use PHPUnit\Framework\TestCase;
 
-class AdapterRegistryTest extends \PHPUnit_Framework_TestCase
+class AdapterRegistryTest extends TestCase
 {
     /**
      * @var AdapterRegistry
@@ -25,7 +27,7 @@ class AdapterRegistryTest extends \PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $mockAdapter = $this->getMock('CL\Tissue\Adapter\AdapterInterface');
+        $mockAdapter = $this->getMockBuilder(AdapterInterface::class)->getMock();
 
         $this->registry = new AdapterRegistry();
         $this->registry->register($mockAdapter, 'mock');
@@ -33,7 +35,7 @@ class AdapterRegistryTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
-        $this->assertInstanceOf('CL\Tissue\Adapter\AdapterInterface', $this->registry->get('mock'));
+        $this->assertInstanceOf(AdapterInterface::class, $this->registry->get('mock'));
     }
 
     /**
